@@ -1,4 +1,13 @@
 package com.PDV.dto;
 
-public class CashRegisterResponseDto {
-}
+import java.math.BigDecimal;
+import java.time.LocalDateTime;
+
+public record CashRegisterResponseDto(
+        Long id,
+        String status,
+        LocalDateTime openedAt,
+        LocalDateTime closedAt,
+        BigDecimal initialAmount,
+        BigDecimal finalAmount
+) {}

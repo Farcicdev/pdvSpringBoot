@@ -9,6 +9,6 @@ import java.util.Optional;
 @Repository
 public interface CashRegisterRepository extends JpaRepository<CashRegister, Long> {
 
-    Optional<CashRegister> findByStatus(String status);
+    Optional<CashRegister> findFirstByStatus(String status);
 
 }
