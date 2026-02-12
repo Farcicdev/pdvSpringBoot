@@ -8,9 +8,7 @@ import java.math.BigDecimal;
 
 public record OpenCashRegisterRequestDto(
         @NotNull
-        @DecimalMin(value = "0.00",
-        inclusive = true)
-        String status,
+        @DecimalMin(value = "0.00")
         BigDecimal initialAmount
 ) {
 }

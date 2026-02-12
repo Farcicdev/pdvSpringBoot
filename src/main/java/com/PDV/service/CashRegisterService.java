@@ -6,6 +6,7 @@ import com.PDV.model.CashRegister;
 import com.PDV.repository.CashRegisterRepository;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
@@ -19,7 +20,8 @@ public class CashRegisterService {
 
     private static final String STATUS_CLOSED = "CLOSED";
 
-    private CashRegisterRepository repository;
+    @Autowired
+    final private CashRegisterRepository repository;
 
     @Transactional
     public CashRegisterResponseDto open(OpenCashRegisterRequestDto requestDto) {
@@ -41,6 +43,7 @@ public class CashRegisterService {
         cashRegister.setStatus(STATUS_OPEN);
         cashRegister.setOpenedAt(LocalDateTime.now());
         cashRegister.setClosedAt(null);
+        cashRegister.setInitialAmount(initialAmount);
         cashRegister.setFinalAmount(null);
 
 //        salva
